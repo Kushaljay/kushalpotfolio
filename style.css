@@ -1,0 +1,520 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap");
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+
+.item,
+.role,
+.desc {
+    min-width: 0;
+}
+
+body {
+    font-family: "Geist", "Poppins", sans-serif;
+    background: black;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* ✅ BACKGROUND CANVAS */
+#fluid-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* critical fix */
+    pointer-events: none;
+    background: black;
+}
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-resume {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+}
+
+main {
+    flex: 1;
+    /* pushes footer down */
+}
+
+/* ✅ HERO */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 60px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: clamp(60px, 8vw, 120px);
+    font-weight: 800;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+    user-select: none;
+}
+
+.dot {
+    color: rgba(255, 87, 54);
+    /* or rgba(255, 0, 0) */
+}
+
+.about-text {
+    user-select: none;
+}
+
+.hero p {
+    max-width: 600px;
+    margin-top: 20px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* gradient fade */
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 220px;
+    background: linear-gradient(to bottom, transparent, black);
+}
+
+.black-stop {
+    background: black;
+    padding: 80px 20px;
+    position: relative;
+    z-index: 2;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* container width control */
+.container {
+    max-width: 900px;
+    width: 100%;
+    margin: 60px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* ✅ PROJECTS */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.project-card {
+    padding: 25px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: 0.25s;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(155, 77, 255, 0.6);
+    background: rgba(155, 77, 255, 0.08);
+}
+
+/* ✅ FOOTER (FIXED) */
+.footer {
+    background: #0c0c0c;
+    padding: 50px 50px;
+    margin-top: auto;
+    /* key fix */
+    z-index: 2;
+    position: relative;
+}
+
+.footer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-section h3 {
+    margin-bottom: 12px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section li {
+    padding-top: 10px;
+    color: #bbb;
+    font-size: 14px;
+}
+
+.footer-section a {
+
+    padding-top: 10px;
+    color: #bbb;
+    font-size: 14px;
+}
+
+.footer-section a:hover {
+    color: white;
+}
+
+/* NAVBAR BASE */
+.navbar {
+    position: fixed;
+    top: 20px;
+    right: 40px;
+    z-index: 1000;
+
+    display: flex;
+    gap: 30px;
+
+    padding: 10px 16px;
+
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* LINKS */
+.navbar a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 15px;
+    font-weight: 400;
+    transition: opacity 0.2s ease;
+}
+
+.navbar a:hover {
+    opacity: 0.6;
+}
+
+/* HIDDEN STATE (scroll down) */
+.navbar.hidden {
+    transform: translateY(-120%);
+    opacity: 0;
+}
+
+.about-section {
+    background-color: #000000;
+    color: #eee;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-container {
+    max-width: 900px;
+    width: 100%;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #fff;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.about-text p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.about-text p strong {
+    color: #fff;
+}
+
+.about-text .fun-fact {
+    font-style: italic;
+    color: #aaa;
+    margin-top: 20px;
+    border-left: 3px solid #555;
+    padding-left: 12px;
+}
+
+/* static/css/resume.css */
+.container {
+    width: 900px;
+    margin: 60px auto;
+}
+
+.section {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 700px) {
+    .section {
+        grid-template-columns: 1fr;
+    }
+}
+
+.section-title {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #888;
+}
+
+.item {
+    margin-bottom: 30px;
+}
+
+.date {
+    font-size: 14px;
+    color: #aaa;
+    margin-bottom: 6px;
+}
+
+.role {
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.company {
+    font-weight: 600;
+}
+
+.title {
+    color: #aaa;
+    margin-left: 8px;
+}
+
+.desc {
+    color: #bbb;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+
+.hero-title {
+    min-height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title h1 {
+    font-size: clamp(60px, 8vw, 120px);
+    font-weight: 800;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+    user-select: none;
+}
+
+.toolsbox ul {
+    display: flex;
+    position: relative;
+    justify-content: flex-start;
+    color: white;
+    list-style: none;
+    font-weight: 300;
+    font-size: 1rem;
+    color: white;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0.5rem 0 0 0;
+}
+
+.toolsbox ul li {
+    box-shadow: inset 0 0 2px #888;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    margin: 0.3rem;
+    border-radius: 0.2rem;
+}
+
+
+
+
+
+.research-container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+
+
+
+/* ===== RESET ===== */
+
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+/* ===== SECTION ===== */
+.section {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 30px;
+    padding: 40px 0;
+    border-top: 1px solid #222;
+}
+
+@media (max-width: 768px) {
+    .section {
+        grid-template-columns: 1fr;
+    }
+}
+
+.section-title {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #777;
+}
+
+.section-content {
+    width: 100%;
+}
+
+/* ===== ITEMS ===== */
+.item {
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.date {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 6px;
+}
+
+.role {
+    font-size: 17px;
+    margin-bottom: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.company {
+    font-weight: 600;
+}
+
+.title {
+    color: #aaa;
+}
+
+.desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #bbb;
+    max-width: 100%;
+    word-break: break-word;
+}
+
+/* ===== LINKS ===== */
+.links {
+    margin-top: 8px;
+}
+
+.links a {
+    font-size: 13px;
+    color: #aaa;
+    text-decoration: underline;
+}
+
+.links a:hover {
+    color: #fff;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 20px;
+    padding: 10px 16px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    z-index: 1000;
+}
+
+.navbar a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* ===== RESEARCH GRID ===== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: #2a2a2a;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-title {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.card-description {
+    font-size: 14px;
+    color: #aaa;
+}
