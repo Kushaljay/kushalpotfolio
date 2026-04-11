@@ -27,14 +27,12 @@ body {
     overflow-x: hidden;
 }
 
-/* ✅ BACKGROUND CANVAS */
 #fluid-canvas {
     position: fixed;
     inset: 0;
     width: 100%;
     height: 100%;
     z-index: -1;
-    /* critical fix */
     pointer-events: none;
     background: black;
 }
@@ -54,10 +52,8 @@ body {
 
 main {
     flex: 1;
-    /* pushes footer down */
 }
 
-/* ✅ HERO */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -78,7 +74,6 @@ main {
 
 .dot {
     color: rgba(255, 87, 54);
-    /* or rgba(255, 0, 0) */
 }
 
 .about-text {
@@ -92,7 +87,6 @@ main {
     color: rgba(255, 255, 255, 0.7);
 }
 
-/* gradient fade */
 .hero::after {
     content: "";
     position: absolute;
@@ -111,7 +105,6 @@ main {
     border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* container width control */
 .container {
     max-width: 900px;
     width: 100%;
@@ -120,7 +113,6 @@ main {
     box-sizing: border-box;
 }
 
-/* ✅ PROJECTS */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -142,12 +134,10 @@ main {
     background: rgba(155, 77, 255, 0.08);
 }
 
-/* ✅ FOOTER (FIXED) */
 .footer {
     background: #0c0c0c;
     padding: 50px 50px;
     margin-top: auto;
-    /* key fix */
     z-index: 2;
     position: relative;
 }
@@ -186,7 +176,6 @@ main {
     color: white;
 }
 
-/* NAVBAR BASE */
 .navbar {
     position: fixed;
     top: 20px;
@@ -207,7 +196,6 @@ main {
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* LINKS */
 .navbar a {
     text-decoration: none;
     color: rgba(255, 255, 255, 0.85);
@@ -220,7 +208,6 @@ main {
     opacity: 0.6;
 }
 
-/* HIDDEN STATE (scroll down) */
 .navbar.hidden {
     transform: translateY(-120%);
     opacity: 0;
@@ -266,7 +253,6 @@ main {
     padding-left: 12px;
 }
 
-/* static/css/resume.css */
 .container {
     width: 900px;
     margin: 60px auto;
@@ -376,10 +362,6 @@ main {
 
 
 
-
-/* ===== RESET ===== */
-
-
 .container {
     width: 100%;
     max-width: 1000px;
@@ -388,7 +370,6 @@ main {
 }
 
 
-/* ===== SECTION ===== */
 .section {
     width: 100%;
     display: grid;
@@ -414,7 +395,6 @@ main {
     width: 100%;
 }
 
-/* ===== ITEMS ===== */
 .item {
     margin-bottom: 30px;
     width: 100%;
@@ -450,7 +430,6 @@ main {
     word-break: break-word;
 }
 
-/* ===== LINKS ===== */
 .links {
     margin-top: 8px;
 }
@@ -465,7 +444,6 @@ main {
     color: #fff;
 }
 
-/* ===== NAVBAR ===== */
 .navbar {
     position: fixed;
     top: 20px;
@@ -486,7 +464,6 @@ main {
     font-size: 14px;
 }
 
-/* ===== RESEARCH GRID ===== */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -556,7 +533,6 @@ main {
     height: 300px;
   }
 
-  /* Hide 2nd and 3rd images */
   .imgcard:nth-child(2),
   .imgcard:nth-child(3) {
     display: none;

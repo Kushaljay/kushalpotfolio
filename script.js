@@ -114,10 +114,8 @@ if (canvas) {
 
             ctx.fillStyle = `rgba(100,100,100,${alpha})`;
 
-            // ✅ SIZE BASED ON SPEED (NEW)
             let speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
             let size = 1.2 + Math.min(speed * 0.8, 2);
-            // small boost, capped so it doesn't explode
 
             ctx.beginPath();
             ctx.arc(p.x, p.y, size, 0, Math.PI * 2);
@@ -144,14 +142,11 @@ if (navbar) {
         const currentScrollY = window.scrollY;
         const delta = currentScrollY - lastScrollY;
 
-        // only react to meaningful scroll
         if (Math.abs(delta) > 10) {
 
             if (delta > 0 && currentScrollY > 80) {
-                // scrolling down
                 navbar.classList.add("hidden");
             } else {
-                // scrolling up
                 navbar.classList.remove("hidden");
             }
 
@@ -186,10 +181,8 @@ function isMobile() {
 
 function updateImages() {
   if (isMobile()) {
-    // only update first image
     imgEls[0].src = images[index % images.length];
   } else {
-    // update all 3 images
     for (let i = 0; i < 3; i++) {
       imgEls[i].src = images[(index + i) % images.length];
     }
@@ -198,8 +191,6 @@ function updateImages() {
   index = (index + 1) % images.length;
 }
 
-// initial load
 updateImages();
 
-// rotate every 3 seconds
 setInterval(updateImages, 3000);
