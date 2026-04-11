@@ -159,9 +159,11 @@ if (navbar) {
 
 const images = [
   "images/camel2.JPG",
+  "images/lab.jpeg",
   "images/skydiving.jpg",
   "images/engine.jpeg",
-  "images/lab.jpeg"
+  "images/morroco.JPG"
+  
 ];
 
 let index = 0;
