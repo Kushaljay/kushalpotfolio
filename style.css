@@ -143,7 +143,6 @@ main {
 }
 
 .footer-container {
-    max-width: 1000px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
