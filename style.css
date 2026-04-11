@@ -518,3 +518,47 @@ main {
     font-size: 14px;
     color: #aaa;
 }
+
+
+.imggallery {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  padding: 60px;
+}
+
+.imgcard {
+  width: 300px;
+  height: 300px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #ddd;
+  transition: transform 0.4s ease;
+}
+
+.imgcard:hover {
+  transform: translateY(-8px);
+}
+
+.imgcard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .imggallery {
+    padding: 20px;
+  }
+
+  .imgcard {
+    width: 90%;
+    height: 300px;
+  }
+
+  /* Hide 2nd and 3rd images */
+  .imgcard:nth-child(2),
+  .imgcard:nth-child(3) {
+    display: none;
+  }
+}

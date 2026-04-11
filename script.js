@@ -159,3 +159,47 @@ if (navbar) {
         }
     });
 }
+
+
+
+const images = [
+  "images/camel2.JPG",
+  "images/turbine.jpeg",
+  "images/skydiving.jpg",
+  "images/canyon.jpeg",
+  "images/engine.jpeg",
+  "images/fenway.jpeg",
+  "images/lab.jpeg"
+];
+
+let index = 0;
+
+const imgEls = [
+  document.getElementById("img1"),
+  document.getElementById("img2"),
+  document.getElementById("img3")
+];
+
+function isMobile() {
+  return window.innerWidth <= 768;
+}
+
+function updateImages() {
+  if (isMobile()) {
+    // only update first image
+    imgEls[0].src = images[index % images.length];
+  } else {
+    // update all 3 images
+    for (let i = 0; i < 3; i++) {
+      imgEls[i].src = images[(index + i) % images.length];
+    }
+  }
+
+  index = (index + 1) % images.length;
+}
+
+// initial load
+updateImages();
+
+// rotate every 3 seconds
+setInterval(updateImages, 3000);
